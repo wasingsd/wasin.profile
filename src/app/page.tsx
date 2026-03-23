@@ -22,7 +22,15 @@ import {
   MapPin,
   Phone,
   Menu,
-  X
+  X,
+  Brain,
+  Truck,
+  Music,
+  Video,
+  Package,
+  FileText,
+  ExternalLink,
+  Rocket
 } from 'lucide-react';
 
 const App = () => {
@@ -83,6 +91,61 @@ const App = () => {
     { name: "Business Intelligence", icon: <TrendingUp size={18} /> },
     { name: "Enterprise Software", icon: <Settings size={18} /> },
     { name: "Team Leadership", icon: <Users size={18} /> },
+    { name: "AI & LLM Integration", icon: <Cpu size={18} /> },
+    { name: "Firebase & Cloud Architecture", icon: <Database size={18} /> },
+    { name: "LINE Platform (LIFF)", icon: <Monitor size={18} /> },
+  ];
+
+  const personalProjects = [
+    {
+      title: "Panya",
+      category: "AI SaaS Platform",
+      description: "AI Shop Brain for local restaurants & shops in Chiang Mai — 4 Brain Modules: Sales, Content, Chat, Insight. Empowering solo owners to operate like a full team.",
+      tech: ["Next.js 15", "tRPC", "Firebase", "Zustand", "Gemini AI"],
+      icon: <Brain className="text-zinc-400" size={20} />,
+      status: "In Development"
+    },
+    {
+      title: "POS Delivery System",
+      category: "Full-stack Application",
+      description: "End-to-end POS + Delivery system for restaurants — LINE LIFF login, Google Maps, Gemini AI Chatbot, Rider Dispatch with 13 Module Specs.",
+      tech: ["Next.js 15", "LINE LIFF", "Firebase", "Gemini AI", "Playwright"],
+      icon: <Truck className="text-zinc-400" size={20} />,
+      status: "Active"
+    },
+    {
+      title: "AI Emotional Audio",
+      category: "LINE-first Platform",
+      description: "Subscription platform — users express emotions via text, AI generates personalized voice notes & micro-songs. Blends Astrology, Psychology & AI Voice.",
+      tech: ["Monorepo", "Firebase", "LINE LIFF", "AI Voice", "TTS"],
+      icon: <Music className="text-zinc-400" size={20} />,
+      status: "Planning"
+    },
+    {
+      title: "Affiliate Video Agent",
+      category: "AI Automation",
+      description: "AI Agent for automated video content creation — leverages Knowledge Base + AI Profiles to generate affiliate videos with Docker deployment.",
+      tech: ["Next.js", "Firebase", "Docker", "Cloud Functions", "Gemini AI"],
+      icon: <Video className="text-zinc-400" size={20} />,
+      status: "In Development"
+    },
+    {
+      title: "Commission Cargo",
+      category: "Business Tool",
+      description: "Commission calculation system for cargo & logistics — Rate Versioning, CSV Import/Export, Audit Log, and Role-Based Access Control.",
+      tech: ["Next.js 14", "Prisma", "PostgreSQL", "NextAuth"],
+      icon: <Package className="text-zinc-400" size={20} />,
+      link: "https://github.com/wasingsd/commission-cargo",
+      status: "In Development"
+    },
+    {
+      title: "MBS System",
+      category: "Data Platform",
+      description: "Book management & reading log platform built with Firebase Data Connect — featuring book lists, reviews, and social reading features.",
+      tech: ["Next.js", "Firebase Data Connect", "React Query", "Vercel"],
+      icon: <Database className="text-zinc-400" size={20} />,
+      status: "In Development"
+    }
   ];
 
   return (
@@ -115,6 +178,7 @@ const App = () => {
           <div className="hidden md:flex gap-8 text-sm text-zinc-400 items-center">
             <a href="#about" className="hover:text-white transition-colors">About</a>
             <a href="#work" className="hover:text-white transition-colors">Projects</a>
+            <a href="#side-projects" className="hover:text-white transition-colors">Side Projects</a>
             <a href="#contact" className="hover:text-white transition-colors text-xs uppercase tracking-widest border border-white/20 px-5 py-2 rounded-full hover:bg-white hover:text-black transition-all">
               Connect
             </a>
@@ -147,6 +211,13 @@ const App = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Projects
+                </a>
+                <a
+                  href="#side-projects"
+                  className="hover:text-white transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Side Projects
                 </a>
                 <a
                   href="#contact"
@@ -267,6 +338,71 @@ const App = () => {
                     {project.tags.map((tag, tIndex) => (
                       <span key={tIndex} className="text-[9px] px-2 py-1 rounded border border-white/5 bg-white/5 text-zinc-400 uppercase font-bold tracking-tighter">
                         {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Personal / Side Projects Section */}
+        <section id="side-projects" className="mb-20 md:mb-40">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+            <div>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="h-[1px] w-8 bg-zinc-700"></div>
+                <h2 className="text-sm uppercase tracking-[0.4em] text-zinc-400 font-bold">Side Projects</h2>
+              </div>
+              <h3 className="text-4xl font-bold tracking-tight text-white">Personal Projects</h3>
+              <p className="text-zinc-500 text-sm mt-3 max-w-lg font-medium">Self-designed, architected & built from Business Plan to Production.</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {personalProjects.map((project, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-zinc-900/80 backdrop-blur-md p-8 hover:border-white/20 transition-all duration-500 shadow-xl"
+              >
+
+                <div className="relative z-10">
+                  {/* Header */}
+                  <div className="flex items-start justify-between mb-5">
+                    <div className="flex items-center gap-3">
+                      <div className="p-3 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm group-hover:bg-white group-hover:text-black transition-all">
+                        {project.icon}
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-bold text-white tracking-tight">
+                          {project.title}
+                        </h4>
+                        <span className="text-[10px] uppercase tracking-widest text-zinc-500 font-bold">{project.category}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[10px] uppercase tracking-widest text-zinc-300 py-1 px-3 border border-zinc-800 rounded-full backdrop-blur-sm font-bold">
+                        {project.status}
+                      </span>
+                      {project.link && (
+                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="p-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white hover:text-black transition-all">
+                          <ExternalLink size={14} />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-zinc-300 text-sm leading-relaxed mb-6 max-w-md group-hover:text-white transition-colors font-medium">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2 pt-6 border-t border-white/5">
+                    {project.tech.map((t, tIdx) => (
+                      <span key={tIdx} className="text-[9px] px-2 py-1 rounded border border-white/5 bg-white/5 text-zinc-400 uppercase font-bold tracking-tighter">
+                        {t}
                       </span>
                     ))}
                   </div>
