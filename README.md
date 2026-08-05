@@ -8,6 +8,9 @@ Managed by a Project Manager at **Lucas Strategy**, specializing in digital tran
 
 **Key Qualifications & Projects:**
 - **SRTA Digital Asset Management**: Led digital transformation initiatives for the State Railway of Thailand.
+- **Hueanpen POS**: Mobile-first POS & Kitchen Display System (KDS) for Hueanpen Chiang Mai.
+- **Northern-Gas**: Full-stack LPG gas store ERP & delivery lifecycle tracking system.
+- **MBS System**: Comprehensive back office & AI customer support with LINE OA & Facebook Messenger integration.
 - **Miss Grand App**: Managed the development of an integrated livestreaming application.
 - **ZWAPMONEY**: Co-founder of this fintech initiative.
 - **Lucas Strategy**: Driving digital strategy and execution.

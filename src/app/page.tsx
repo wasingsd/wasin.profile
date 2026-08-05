@@ -30,7 +30,10 @@ import {
   Package,
   FileText,
   ExternalLink,
-  Rocket
+  Rocket,
+  Flame,
+  Utensils,
+  Store
 } from 'lucide-react';
 
 const contentDict = {
@@ -154,6 +157,39 @@ const getExpertise = (lang: 'en' | 'th') => [
 
 const getPersonalProjects = (lang: 'en' | 'th') => [
   {
+    title: "Hueanpen POS",
+    category: lang === 'th' ? "ระบบ POS & KDS ร้านอาหาร" : "Restaurant POS & KDS",
+    description: lang === 'th'
+      ? "ระบบ POS ร้านอาหารแบบ Mobile-First และ Kitchen Display System (KDS) สำหรับร้านอาหาร 'เฮือนเพ็ญ' เชียงใหม่ รองรับการจัดการออเดอร์, คิวครัว, SLA, Order Routing และระบบสิทธิ์ผู้ใช้งานแยกรายสาขา"
+      : "Mobile-First POS & Kitchen Display System (KDS) custom-built for Hueanpen Restaurant in Chiang Mai. Features order routing, SLA tracking, multi-branch role management, and financial audit logs.",
+    tech: ["Next.js 15", "TypeScript", "Tailwind CSS", "Firebase", "Firestore", "Vitest"],
+    icon: <Utensils className="text-zinc-400" size={20} />,
+    link: "https://github.com/wasingsd/hueanpen-pos",
+    status: lang === 'th' ? "เปิดใช้งาน" : "Active"
+  },
+  {
+    title: "Northern-Gas",
+    category: lang === 'th' ? "ระบบจัดการร้านแก๊ส & โลจิสติกส์" : "Gas Store ERP & Logistics",
+    description: lang === 'th'
+      ? "ระบบบริหารจัดการร้านแก๊สหุงต้มครบวงจร ติดตามวงจรถังแก๊ส (Cylinder Lifecycle) ด้วย QR Code/Barcode มี Driver Mobile App สำหรับคนขับรถส่งแก๊ส และ Admin Dashboard พร้อมระบบ Kanban จัดส่งและออกใบส่งของ"
+      : "Comprehensive LPG Gas Store Management & Logistics Platform. Tracks cylinder lifecycles via QR Code scanning, features a mobile-first Driver App, and an Admin Dashboard with delivery Kanban and invoicing.",
+    tech: ["Next.js 16", "React 19", "Tailwind CSS v4", "Prisma", "PostgreSQL", "Supabase"],
+    icon: <Flame className="text-zinc-400" size={20} />,
+    link: "https://github.com/wasingsd/Northern-Gas",
+    status: lang === 'th' ? "เปิดใช้งาน" : "Active"
+  },
+  {
+    title: "MBS System",
+    category: lang === 'th' ? "ระบบหลังบ้าน & AI Customer Support" : "Back Office & AI Platform",
+    description: lang === 'th'
+      ? "ระบบบริหารหลังบ้านครบวงจรสำหรับ MBS (Preorder & Cleaning) พร้อมระบบบริการลูกค้าอัตโนมัติด้วย Gemini AI, เชื่อมต่อ LINE Official Account & Facebook Messenger API และระบบรายงานวิเคราะห์การเงิน"
+      : "Comprehensive Back Office & Customer Service Platform for MBS (Preorder & Cleaning). Features automated customer support powered by Gemini AI, seamless LINE OA & Facebook Messenger integration, and financial accounting reports.",
+    tech: ["Next.js 15", "Firebase Firestore", "LINE OA API", "Facebook API", "Gemini AI"],
+    icon: <Brain className="text-zinc-400" size={20} />,
+    link: "https://github.com/wasingsd/mbs.system",
+    status: lang === 'th' ? "เปิดใช้งาน" : "Active"
+  },
+  {
     title: "Panya",
     category: lang === 'th' ? "แพลตฟอร์ม AI SaaS" : "AI SaaS Platform",
     description: lang === 'th'
@@ -162,16 +198,6 @@ const getPersonalProjects = (lang: 'en' | 'th') => [
     tech: ["Next.js 15", "tRPC", "Firebase", "Zustand", "Gemini AI"],
     icon: <Brain className="text-zinc-400" size={20} />,
     status: lang === 'th' ? "กำลังพัฒนา" : "In Development"
-  },
-  {
-    title: "POS Delivery System",
-    category: lang === 'th' ? "แอปพลิเคชัน Full-stack" : "Full-stack Application",
-    description: lang === 'th'
-      ? "ระบบ POS และระบบ Delivery ครบวงจรสำหรับร้านอาหาร มีระบบล็อกอินผ่าน LINE LIFF, Google Maps, แชทบอท Gemini AI และระบบจัดคิวไรเดอร์ที่มีมากกว่า 13 โมดูล"
-      : "End-to-end POS + Delivery system for restaurants — LINE LIFF login, Google Maps, Gemini AI Chatbot, Rider Dispatch with 13 Module Specs.",
-    tech: ["Next.js 15", "LINE LIFF", "Firebase", "Gemini AI", "Playwright"],
-    icon: <Truck className="text-zinc-400" size={20} />,
-    status: lang === 'th' ? "เปิดใช้งาน" : "Active"
   },
   {
     title: "AI Emotional Audio",
@@ -203,16 +229,6 @@ const getPersonalProjects = (lang: 'en' | 'th') => [
     icon: <Package className="text-zinc-400" size={20} />,
     link: "https://github.com/wasingsd/commission-cargo",
     status: lang === 'th' ? "กำลังพัฒนา" : "In Development"
-  },
-  {
-    title: "MBS System",
-    category: lang === 'th' ? "แพลตฟอร์มจัดการข้อมูล" : "Data Platform",
-    description: lang === 'th'
-      ? "ระบบจัดการคลังหนังสือและบันทึกการอ่านหนังสือ สร้างขึ้นจาก Firebase Data Connect มาพร้อมมุมมองคลังหนังสือ การรีวิวหนังสือ และฟีเจอร์แชร์การอ่าน"
-      : "Book management & reading log platform built with Firebase Data Connect — featuring book lists, reviews, and social reading features.",
-    tech: ["Next.js", "Firebase Data Connect", "React Query", "Vercel"],
-    icon: <Database className="text-zinc-400" size={20} />,
-    status: lang === 'th' ? "เปิดใช้งาน" : "Active"
   },
   {
     title: "Nongtung Adventure",
